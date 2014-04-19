@@ -1,0 +1,18 @@
+
+<% content_for :header do %>
+	<%= form_for(@project, remote: true) do |f| %>  	
+		<span class="editable">
+			<h1 class="gotham-light"><%= f.text_field :name, class: "editable-field unselected", disabled: true %></h1>
+			<%= f.submit %>
+		</span>
+	<% end %>
+<% end %>
+
+<br><br>
+
+<%= render @groups %>
+<%= render partial: 'groups/form' %>
+
+<br><hr><br>
+
+<%= link_to 'Back', client_path(@client) %>

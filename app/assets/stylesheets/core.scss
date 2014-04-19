@@ -1,0 +1,316 @@
+@import url("http://weloveiconfonts.com/api/?family=entypo");
+
+html, body {
+    font-family: 'Gotham A', 'Gotham B';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+}
+
+a {
+    transition: background-color 0.3s;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    margin: 0 0 30px 0;
+    border-bottom: 1px solid black;
+    display: inline-block;
+}
+
+.grid-container {
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#header {
+    width: 100%;
+    height: 190px;
+    padding-top: 40px;
+}
+
+#content {
+    background-color: #f4f4f4;
+    padding: 60px 0;
+    overflow: auto;
+}
+
+#logo-push {
+    margin-bottom: 60px;
+    float: left;
+}
+
+#header h1 {
+    font-size: 28px;
+    font-weight: normal;
+    padding-top: 5px;
+    margin: 0;
+    float: left;
+    clear: both;
+}
+
+#header .button {
+    float: right;
+}
+
+.button {
+    color: black;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 12px 20px 12px 10px;
+    border: 1px solid black;
+    display: inline-block;
+}
+
+.button:hover {
+    background-color: #f4f4f4;
+}
+
+#download-deck {
+    background-position: 20px center;
+    padding-left: 45px;
+}
+
+.icon-download {
+    background: url('icon_download.png') no-repeat center center;
+}
+
+/* Content */
+
+.option a {
+    margin-bottom: 100px;
+    display: block;
+    float: left;
+    position: relative;
+}
+
+.option a:first-of-type {
+    margin-right: 60px;
+    clear: both;
+}
+
+.option a .overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.75);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.option a:hover .overlay {
+    opacity: 1;
+}
+
+.option a:before {
+    content: '';
+    width: 150px;
+    height: 150px;
+    background: url('icon_view.png') no-repeat center 30px;
+    background-color: #333;
+    border-radius: 150px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    margin-top: -75px;
+    margin-left: -75px;
+    z-index: 2;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.option a:hover:before {
+    top: 50%;
+    opacity: 1;
+}
+
+.option a:after {
+    content: attr(title);
+    width: 80px;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    line-height: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    margin-left: -40px;
+    z-index: 2;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.option a:hover:after {
+    top: 50%;
+    opacity: 1;
+}
+
+/* Option Small */
+
+.option-small-links {
+    margin-bottom: 100px;
+    overflow: auto;
+}
+
+.option-small a {
+    color: #333;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: white;
+    width: 270px;
+    min-height: 230px;
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+    margin: 0 20px 40px 20px;
+    display: block;
+    float: left;
+    position: relative;
+}
+
+.option-small a:hover {
+    background-color: #e5e5e5;
+    border-color: #ccc;
+}
+
+.option-small-image {
+    width: 270px;
+    height: 184px;
+    overflow: hidden;
+}
+
+.option-small a img {
+    width: 100%;
+    height: auto;
+    -webkit-transform-origin: center top;
+    transform-origin: center top;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.option-small a:hover img {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+/* Fonts */
+
+.gotham-light {
+    font-family: 'Gotham A', 'Gotham B';
+    font-weight: 300 !important;
+    font-style: normal;
+}
+
+.gotham-book {
+    font-family: 'Gotham A', 'Gotham B';
+    font-weight: 400 !important;
+    font-style: normal;
+}
+
+.gotham-medium {
+    font-family: 'Gotham A', 'Gotham B';
+    font-weight: 500 !important;
+    font-style: normal;
+}
+
+// Justin
+
+* { -webkit-font-smoothing: antialiased; }
+
+[class*="entypo-"]:before { font-family: 'entypo', sans-serif; }
+a.icon { text-decoration: none; }
+
+// UI / Progress Bar
+
+.box {
+	background: #efefef; border: 1px solid #ddd; padding: 10px; 
+}
+
+//input[type="text"],
+//input[type="email"],
+//textarea {
+//	font-size: 18px;
+//}
+
+$progressBarHeight: 30px;
+
+.ui-progress {
+	background: #efefef;
+	display: none;
+	height: $progressBarHeight;
+	position: fixed;
+	z-index: 9000;
+	top: 0;
+	left: 0;
+	width: 100%;
+
+	.bar { background: #aaa; height: $progressBarHeight; display: block; }
+}
+
+// Common
+
+.hidden { display: none; }
+
+/* Editable Fields */
+
+.editable { cursor: pointer; }
+.editable .editable-field.unselected { border: 0; color: #444; cursor: pointer; }
+.editable input[type="submit"] { display: none !important }
+
+
+
+
+
+
+
+.login {
+	border-bottom: 1px solid #efefef;
+	padding: 10px 0;
+	text-align: right;
+	a { color: #ccc; display: inline-block; text-decoration: none; margin-left: 20px }
+}
+
+
+
+
+
+
+
+// inputs
+
+.field { margin-bottom: 15px; }
+.field label { display: block; margin-bottom: 4px; }
+.actions { margin-top: 40px; }
+
+input[type='text'],
+input[type='password'], {
+    color: black;
+    text-decoration: none;
+    padding: 12px 20px 11px 10px;
+    border: 1px solid #999;
+}
+
+input[type='submit'] {
+	background: none;
+}
+
+
+#flash_alert {
+	color: #892d10;
+	font-size: 14px;
+	font-weight: 200;
+	margin-bottom: 45px;
+}

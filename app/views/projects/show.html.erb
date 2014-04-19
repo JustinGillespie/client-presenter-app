@@ -1,0 +1,18 @@
+<% content_for :header do %>
+	<h1 class="gotham-light"><%= @project.name %></h1>
+<% end %>
+
+<% @groups.each do |group| %>
+	<div style="border: 2px solid #efefef; padding: 15px; margin-bottom: 15px;">
+		<h4 style="margin: 0;"><%= group.title %></h4>	
+		<% group.assets.each do |a| %>
+			<% if a.image? %>
+				<a href="<%= a.image_url() %>"><%= image_tag a.image_url(:thumb) %></a>
+			<% end %>
+		<% end %>
+	</div>
+<% end %>
+
+<br>
+
+<p><%= link_to 'Edit This Project', edit_project_path(@project) %></p>

@@ -1,0 +1,7 @@
+<% if @asset.new_record? %>
+  alert("Failed to upload asset: <%= j @asset.errors.full_messages.join(', ').html_safe %>");
+<% else %>
+  var assets = $('div[data-group="<%= @asset.group.id %>"]').find('.asset-group');
+  $("<%= j render(@asset) %>").hide().appendTo(assets).fadeIn(1000);
+  $("#ui-progress").find('.bar').css('width', '0%')
+<% end %>

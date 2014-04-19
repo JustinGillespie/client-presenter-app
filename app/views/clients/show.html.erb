@@ -1,0 +1,32 @@
+<h1><%= @client.name %></h1>
+
+<p>
+	<h2>Projects</h2>
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Name</th>
+	      <th></th>
+	      <th></th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	    <% @projects.each do |project| %>
+	      <tr>
+	        <td><%= project.name %></td>
+	        <td><%= link_to 'Edit', edit_project_path(project) %></td>
+	        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+
+	<%= link_to 'New Project', new_project_path %>
+</p>
+
+<hr>
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>

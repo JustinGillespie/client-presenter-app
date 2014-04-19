@@ -1,0 +1,28 @@
+<h1>Dashboard</h1>
+
+<% if admin? %>
+
+	<h3>Clients</h3>
+	
+	<ul>
+	<% @clients.each do |client| %>
+		<li><%= link_to client.name, client_path(client) %><br></li>
+	<% end %>
+	</ul>
+
+<% else  %>
+
+	<h3><%= current_user.client.name %>'s Projects</h3>
+	
+	<ul>
+	<% current_user.client.projects.each do |project| %>
+		<li><%= link_to project.name, project_path(project) %><br></li>
+	<% end %>
+	</ul>
+
+<% end %>
+
+
+
+
+

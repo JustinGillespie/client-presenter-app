@@ -1,0 +1,15 @@
+
+
+  <div class="box" style="width: 200px; margin: 25px 0">
+		
+    <%= form_for( [@project, group.assets.new], :html => {:class => "multi-upload", :multipart => true} ) do |f| %>
+      <div class="field">
+  	<span class="entypo-attach" style="font-size: 1.9em;"></span>
+
+        <%= f.hidden_field :title %>
+        <%= f.file_field :image, multiple: true, name: "asset[image]" %>
+        <%= f.hidden_field :group_id, value: group.id %>
+      </div>
+    <% end %>
+
+  </div>
