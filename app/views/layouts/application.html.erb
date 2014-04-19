@@ -3,8 +3,8 @@
 <head>
   <title>Push!</title>
   <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7685272/644722/css/fonts.css" />
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -29,7 +29,7 @@
 
   <div id="header">
     <div class="grid-container">
-      <%= image_tag('logo_push.png', id: 'logo-push') %>
+      <%= link_to( image_tag('logo_push.png', id: 'logo-push'), root_url )%>
       <%= yield :header %>
       <a id="download-deck" class="button icon-download" href="website-creative.pdf" title="Download Deck">
         <span>Download Deck</span>
