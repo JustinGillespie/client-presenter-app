@@ -12,7 +12,7 @@ jQuery ->
 		field.attr
 			'disabled'  : false
 			'data-save' : field.val()
-		field.removeClass('unselected').focus()
+		field.removeClass('unselected').focus().select()
 
 	body.on 'blur', '.editable-field', (e) -> trigger_event $(this)
 	body.on 'keypress', '.editable-field', (e) -> 
@@ -28,13 +28,18 @@ jQuery ->
 		field.removeAttr('data-save').attr('disabled', true).addClass('unselected')
 
 	#
-	# Progress Bar
+	# File Upload / Progress Bar
 	#
 
 	ui_progress = $('#ui-progress')
 
+	# Prevent browser from using native drag and drop
+	$(document).bind 'drop dragover', (e) -> e.preventDefault();
+
 	$('.multi-upload').fileupload
+		dropZone: null
 		dataType: "script"
+
 		start: (e, data) -> ui_progress.show()
 		stop: (e, data) -> ui_progress.hide()
 		add: (e, data) ->
@@ -48,6 +53,9 @@ jQuery ->
 			progress = parseInt(data.loaded / data.total * 100, 10)
 			console.log(progress)
 			ui_progress.find('.bar').css('width', progress + '%')
+
+
+
 
 
 

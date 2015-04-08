@@ -1,5 +1,24 @@
 @import url("http://weloveiconfonts.com/api/?family=entypo");
 
+
+/* mixins */
+
+@mixin clear {
+  *zoom: 1;
+  &:before, &:after { content: " "; display: table; }
+  &:after { clear: both; }
+}
+
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+
+/* global */
+
 html, body {
     font-family: 'Gotham A', 'Gotham B';
     font-weight: 400;
@@ -23,6 +42,7 @@ h2 {
 }
 
 .grid-container {
+    @include clear;
     width: 940px;
     margin-left: auto;
     margin-right: auto;
@@ -41,8 +61,9 @@ h2 {
 }
 
 #logo-push {
-    margin-bottom: 60px;
-    float: left;
+    clear: both;
+    display: block;
+    margin-bottom: 50px;
 }
 
 #header h1 {
@@ -206,6 +227,7 @@ h2 {
     transform: scale(1.2);
 }
 
+
 /* Fonts */
 
 .gotham-light {
@@ -225,6 +247,38 @@ h2 {
     font-weight: 500 !important;
     font-style: normal;
 }
+
+
+/* Grids */
+
+.row  { @include clear; max-width: 100%; }
+.row .row { width: auto; max-width: none; min-width: 0;}
+
+.column, .columns { float: left; min-height: 1px; position: relative; }
+
+[class*="column"] + [class*="column"]:last-child { float: right; }
+[class*="column"] + [class*="column"].end { float: left; }
+
+.row .one    { width: 8.33%; }
+.row .two    { width: 16.66%; }
+.row .three  { width: 25%; }
+.row .four   { width: 33.33%; }
+.row .five   { width: 41.66%; }
+.row .six    { width: 50%; }
+.row .seven  { width: 58.33%; }
+.row .eight  { width: 66.66%; }
+.row .nine   { width: 75%; }
+.row .ten    { width: 83.33%; }
+.row .eleven { width: 91.66%; }
+.row .twelve { width: 100%; }
+
+
+
+
+
+
+
+
 
 // Justin
 
@@ -264,10 +318,27 @@ $progressBarHeight: 30px;
 
 .hidden { display: none; }
 
+
+
+
 /* Editable Fields */
 
-.editable { cursor: pointer; }
-.editable .editable-field.unselected { border: 0; color: #444; cursor: pointer; }
+.editable { 
+    @include transition(all 0.4s);
+    border: 3px dashed transparent;
+    display: inline-block;
+    cursor: pointer;
+    &:hover {
+        border: 3px dashed #efefef;
+    }
+}
+
+
+.editable .editable-field { border: 0; outline: 0 }
+
+.editable .editable-field.unselected { border: 0; background: transparent; color: #444; cursor: pointer; }
+
+
 .editable input[type="submit"] { display: none !important }
 
 
@@ -282,6 +353,61 @@ $progressBarHeight: 30px;
 	text-align: right;
 	a { color: #ccc; display: inline-block; text-decoration: none; margin-left: 20px }
 }
+
+
+
+// Groups
+
+.group {
+    border: 4px dashed #ccc; 
+    padding: 0; 
+    margin-bottom: 25px;
+
+    h4 { background: white; padding: 25px; margin: 0; }
+}
+
+
+
+.file-upload { 
+    height: 40px;
+    width: 200px;
+    overflow: hidden;
+    margin: 25px;
+    position: relative;
+}
+
+.file-upload input[type='file'] {
+    border: 1px solid red;
+    height: 40px;
+    width: 200px;
+    position: absolute;
+    z-index: 100;
+    opacity: 0;
+}
+
+.file-upload .button { cursor: pointer; position: absolute; z-index: 50; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -313,4 +439,45 @@ input[type='submit'] {
 	font-size: 14px;
 	font-weight: 200;
 	margin-bottom: 45px;
+}
+
+
+
+
+
+.tooltip {
+    font-size: 0.8em;
+    position: relative;
+
+    &:hover {
+        @include transition(all 0.2s);
+        color: #c00;
+        text-decoration: none;
+    }
+    
+    &:after {
+        @include transition(all 0.2s);
+        background: transparent;
+        content: attr(title);
+        display: block;
+        position: absolute;
+        right: -1em;
+        top: -15px;
+        opacity: 0;
+    }
+
+    &:hover:after {
+        background: #111;
+        background: rgba(0,0,0,.8);
+        border-radius: .5em;
+        color: #fff;
+        right: 0.6em;
+        opacity: 1;
+        padding: .6em 1em;
+        text-shadow: 0 1px 0 #000;
+        white-space: nowrap;
+        z-index: 98;
+    }
+
+
 }

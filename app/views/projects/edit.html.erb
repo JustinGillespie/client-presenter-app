@@ -1,17 +1,18 @@
 
 <% content_for :header do %>
 	<%= form_for(@project, remote: true) do |f| %>  	
-		<span class="editable">
+		<span class="editable tooltip" title="Double Click to Edit">
 			<h1 class="gotham-light"><%= f.text_field :name, class: "editable-field unselected", disabled: true %></h1>
 			<%= f.submit %>
 		</span>
 	<% end %>
 <% end %>
 
-<br><br>
+<%= render partial: 'groups/form' %>
+
+<br><br><br><br>
 
 <%= render @groups %>
-<%= render partial: 'groups/form' %>
 
 <br><hr><br>
 

@@ -1,4 +1,4 @@
-<div data-group="<%= group.id %>" style="border: 2px solid #efefef; padding: 15px; margin-bottom: 15px;">
+<div data-group="<%= group.id %>" class="group">
 	
 	<h4>
 		<%= group.title %> 
@@ -7,4 +7,5 @@
 
 	<div class="asset-group"><%= render group.assets %></div>
 	<%= render partial: 'assets/form', locals: { group: group } %>
-</div>
+	
+</div> <!-- end group -->
